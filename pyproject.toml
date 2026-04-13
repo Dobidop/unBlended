@@ -6,8 +6,32 @@ build-backend = "setuptools.backends._legacy:_Backend"
 name = "unblended"
 version = "0.1.0"
 description = "Headless Blender as a Python API — persistent process, socket IPC, zero bpy dependency."
+readme = "README.md"
+license = "MIT"
 requires-python = ">=3.10"
 dependencies = []
+keywords = ["blender", "headless", "3d", "rendering", "automation", "bpy"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Graphics :: 3D Rendering",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/Dobidop/unblended"
+Repository = "https://github.com/Dobidop/unblended"
+Issues = "https://github.com/Dobidop/unblended/issues"
 
 [project.optional-dependencies]
 dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["unblended*"]
