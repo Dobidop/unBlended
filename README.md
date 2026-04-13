@@ -1,8 +1,10 @@
 # unblended
 
-Headless Blender as a Python API.
+A thin transport layer for controlling Blender headlessly from Python.
 
-Launches Blender in the background and talks to it over a local socket. You get full `bpy` access from ordinary Python — no `bpy` pip package, no subprocess-per-call overhead, no lost state between operations.
+unblended is not a framework — it doesn't provide scene-building utilities, material presets, or synthetic data pipelines. What it provides is a **persistent socket connection** to a real Blender process, letting you run any `bpy` code from ordinary Python without losing state between calls.
+
+If you need a batteries-included synthetic data framework, look at [BlenderProc](https://github.com/DLR-RM/BlenderProc). If you need a lightweight way to script Blender from your own Python process — batch automation, interactive tooling, API servers — that's what unblended is for.
 
 ## How it works
 
@@ -133,16 +135,7 @@ unblended/
     _server.py       # Runs inside Blender: socket loop + request handler
 ```
 
-~300 lines of actual code. Zero dependencies beyond Python's standard library.
-
-## vs. alternatives
-
-| Approach | Startup per call | Persistent state | Full bpy | No extra deps |
-|----------|:---:|:---:|:---:|:---:|
-| `subprocess` + `blender -b -P` | ~2s | No | Yes | Yes |
-| `bpy` pip package | None | Yes | Partial | No |
-| BlenderProc | ~2s | No | Partial | No |
-| **unblended** | **Once** | **Yes** | **Yes** | **Yes** |
+~300 lines of actual code. No Python package dependencies — just the standard library. Blender must be installed separately.
 
 ## License
 
